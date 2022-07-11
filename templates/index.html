@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+	<!-- карусель -->
+	{% include 'carousel.html' %}
+  	<!-- Карточки -->
+	{% include 'prices.html' %}
+  	<!-- форма -->
+  	<section>
+  		<div class="container class_form">
+  			<h1 class="text-3">Just leave your phone name, phone number and we wil call you back</h1>
+  			<div class="row justify-content-center">
+  			<form action="{% url 'thank_page' %}" method="POST" style="width: 50%;">
+				{% csrf_token %}
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label ar"></label><br>
+			      {{ form.name }}
+			    <div class="">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label" ></label><br>
+				  {{ form.phone }}
+			    <div class="">
+			    </div>
+			  </div>
+			  <div style="float: right;" class="form-group row">
+			      <button type="submit" class="btn btn-success">Submit</button>
+			  </div>
+			</form>
+			</div>
+  		</div>
+  	</section>
+{% endblock %}
